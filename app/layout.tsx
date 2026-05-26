@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import { SiteShell } from "@fairyrealm/shared";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className={`${geist.variable} min-h-screen bg-zinc-950 text-zinc-100 antialiased`}>
-        {children}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

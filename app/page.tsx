@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { experimentSites, statusLabel } from "@/lib/sites";
-import { getSessionToken } from "@/lib/get-session";
 
-export default async function HubPage() {
-  const token = await getSessionToken();
-
+export default function HubPage() {
   return (
     <main className="mx-auto min-h-screen max-w-4xl px-6 py-16">
       <p className="text-sm uppercase tracking-widest text-violet-400">hub</p>
@@ -14,23 +11,8 @@ export default async function HubPage() {
         <a href="https://fairyrealm.xyz" className="text-violet-400 hover:underline">
           fairyrealm.xyz
         </a>{" "}
-        为品牌入口。
+        为品牌入口；右上角可展开账号面板（可选，不影响浏览）。
       </p>
-
-      <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
-        {token ? (
-          <span className="rounded-full border border-violet-800/60 px-3 py-1 text-violet-200">
-            已登录（JWT）
-          </span>
-        ) : (
-          <a
-            href="https://auth.fairyrealm.xyz/login?callbackUrl=https://hub.fairyrealm.xyz"
-            className="rounded-full bg-violet-600 px-3 py-1 text-white hover:bg-violet-500"
-          >
-            登录统一账号
-          </a>
-        )}
-      </div>
 
       <ul className="mt-12 grid gap-4 sm:grid-cols-2">
         {experimentSites.map((site) => (
